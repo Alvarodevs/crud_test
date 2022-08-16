@@ -1,0 +1,37 @@
+{
+   "sites": [
+      {
+         "_id":"62fa9113be4de5f049a00037",
+         "name":"test_name_38728",
+         "path":"test_path_38728",
+         "publicPath":"test_publicPath_38728",
+         "key":"test_site_38728",
+         "description":"test-description_38728",
+         "site":"1660649147011",
+         "createDate":"2022-08-16T11:25:47.007Z",
+         "__v":0
+      },
+      {
+         "_id":"62fae8a4be4de5f049a00256",
+         "name":"afasfasfd asdfasfasf",
+         "path":"dfdf",
+         "publicPath":"fsdfdf",
+         "key":"fsdfdsf",
+         "description":"A game of the page nauer",
+         "site":"1660643325879",
+         "createDate":"2022-08-16T09:48:45.877Z",
+         "__v":0
+      },
+      {
+         "_id":"62fb966cbe4de5f049a00515",
+         "name":"asdaf",
+         "path":"asdf",
+         "publicPath":"asdfa",
+         "key":"asdfasdf",
+         "description":"asdfasf",
+         "site":"1660655212062",
+         "createDate":"2022-08-16T13:06:52.062Z",
+         "__v":0
+      }
+   ]
+}
