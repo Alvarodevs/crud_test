@@ -2,7 +2,7 @@ import {useEffect} from 'react'
 import{ getAllSites}  from './services/sites'
 import './App.css'
 import { useDispatch } from 'react-redux'
-import { initialSites } from './features/sites/siteSlice'
+import { initSites } from './features/sites/siteSlice'
 
 function App() {
 
@@ -10,8 +10,8 @@ function App() {
     
   useEffect(() => {
     getAllSites()
-      .then(() => {
-        dispatch(initialSites())
+      .then((sites) => {
+        dispatch(initSites(sites))
       })
   },[])
     

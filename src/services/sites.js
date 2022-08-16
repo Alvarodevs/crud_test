@@ -4,5 +4,6 @@ import {URL} from '../utils/constants'
 //Get all sites
 export const getAllSites = async () => {
    const res = await axios.get(`${URL}/sites`)
-   return res.data
+   const data = res.data
+   return data
 }
