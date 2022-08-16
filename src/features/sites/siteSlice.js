@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+const initialState = [];
+
 export const siteSlice = createSlice({
    name: 'sites',
-   initialState: [],
+   initialState,
    reducers: {
       initSites: (state, action) => { 
-         console.log('REDUCER', state, action);
+         state.push(action.payload)
       }
    }
 })
