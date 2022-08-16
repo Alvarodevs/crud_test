@@ -3,6 +3,9 @@ import{ getAllSites}  from './services/sites'
 import './App.css'
 import { useDispatch } from 'react-redux'
 import { initSites } from './features/sites/siteSlice'
+import Header from './components/header'
+import SiteForm from './components/siteForm'
+import SiteList from './components/siteList'
 
 function App() {
 
@@ -17,7 +20,9 @@ function App() {
     
   return (
     <div className="App">
-      <h2>Hello world</h2>
+      <Header/>
+      <SiteForm/>
+      <SiteList/>
     </div>
   )
 }
