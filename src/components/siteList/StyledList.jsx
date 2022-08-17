@@ -1,20 +1,25 @@
 import styled from 'styled-components'
 
+export const Title = styled.h1`
+  display: flex;
+  margin: auto;
+  margin-top: 0.5rem;
+  justify-content: center;
+  color: #fff;
+`
+
 export const ListContainer = styled.div`
-   width: 100%;
+   height: 50vh;
+   margin-top: 0.1rem;
    display: flex;
    justify-content: center;
-   margin-top: 0.5rem;
 `
 
 export const StyledList = styled.div`
    display: flex;
-   justify-content: space-evenly;
-   width: 40rem;
-   height: 70vh;
+   justify-content: space-between;
+   width: 80%;
+   height: 60vh;
+   overflow-x: scroll;
    align-items: center;
-   padding: 10px 15px;
-   background: #654;
-   padding: 2rem;
-   color: #fff;
 `

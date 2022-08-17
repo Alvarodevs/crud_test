@@ -1,14 +1,17 @@
-import { ListContainer, StyledList} from './StyledList'
+import SiteCard from "../siteCard";
+import { ListContainer, StyledList, Title } from "./StyledList";
 
 const SiteList = () => {
-
-   return (
-      <ListContainer>
-         <StyledList>
-            THIS IS A List   
-         </StyledList>
+  return (
+    <div>
+      <Title>Sites creator</Title>
+      <ListContainer className="list-container">
+        <StyledList>
+          <SiteCard></SiteCard>
+        </StyledList>
       </ListContainer>
-   )
-}
+    </div>
+  );
+};
 
-export default SiteList
+export default SiteList;
