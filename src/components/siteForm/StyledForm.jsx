@@ -4,17 +4,26 @@ export const FormContainer = styled.div`
    width: 100%;
    display: flex;
    justify-content: center;
-   margin-top: 0.5rem;
+`
+export const CloseButtonContainer = styled.div`
+   display: flex;
+   justify-content: end;
+   width: 100%;
 `
 
-export const StyledForm = styled.form`
+export const StyledForm = styled.div`
    display: flex;
-   justify-content: space-evenly;
+   flex-direction: column;
    width: 40rem;
-   height: 70vh;
+   height: 60vh;
    align-items: center;
-   padding: 10px 15px;
-   background: #654;
+   background: #fff;
    padding: 2rem;
-   color: #fff;
+   border-radius: 10px;
+`
+
+export const SubmitButtonContainer = styled.div`
+   margin-top: 1rem;
+   display: flex;
+   justify-content: center;
 `

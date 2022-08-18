@@ -24,8 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<SiteList />} />
           <Route path="/create_site" element={<SiteForm />} />
-          <Route path="/edit_site" element={<SiteForm />} />
-          {/* <Route path="/site/:id" element={<SiteForm/>} /> */}
+          <Route path="/edit_site/:id" element={<SiteForm />} />
+          <Route path="/:id" element={<SiteForm/>} />
         </Routes>
       </BrowserRouter>
     </div>

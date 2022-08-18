@@ -21,7 +21,7 @@ const SiteCard = () => {
         sites.map((site) => (
           <StyledCard key={site.id}>
             <ButtonsContainer className="buttons-container">
-              <Link to={"/edit_site"}>
+              <Link to={`edit_site/${site.site}`}>
                 <EditButton>
                   <EditOutlinedIcon color="warning"/>
                 </EditButton>
@@ -31,10 +31,12 @@ const SiteCard = () => {
               </DeleteButton>
             </ButtonsContainer>
             <ContentContainer>
-              <h4>{site.name}</h4>
-              <Paragraph>{site.description}</Paragraph>
-              <p>Path:</p>
-              <Paragraph truncate>{site.publicPath}</Paragraph>
+              <Link to={`/${site.site}`}>
+                <h4>{site.name}</h4>
+                <Paragraph>{site.description}</Paragraph>
+                <p>Path:</p>
+                <Paragraph truncate>{site.publicPath}</Paragraph>
+              </Link>  
             </ContentContainer>
           </StyledCard>
         ))}
