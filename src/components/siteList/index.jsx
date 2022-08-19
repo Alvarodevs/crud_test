@@ -1,4 +1,4 @@
-import SiteCard from "../siteCard";
+import SiteCards from "../siteCard";
 import { ListContainer, StyledList, Title } from "./StyledList";
 
 const SiteList = () => {
@@ -7,7 +7,7 @@ const SiteList = () => {
       <Title>Sites creator</Title>
       <ListContainer className="list-container">
         <StyledList>
-          <SiteCard></SiteCard>
+          <SiteCards></SiteCards>
         </StyledList>
       </ListContainer>
     </div>

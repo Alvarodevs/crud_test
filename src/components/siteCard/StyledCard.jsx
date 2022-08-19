@@ -47,6 +47,8 @@ export const EditButton = styled.button`
 
 export const ContentContainer = styled.div`
   height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &:hover{
     cursor: pointer;
   }

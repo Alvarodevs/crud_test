@@ -9,10 +9,11 @@ export const Title = styled.h1`
 `
 
 export const ListContainer = styled.div`
-   height: 50vh;
+   height: 60vh;
    margin-top: 0.1rem;
    display: flex;
    justify-content: center;
+   align-items: center;
 `
 
 export const StyledList = styled.div`
