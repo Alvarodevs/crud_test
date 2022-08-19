@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {URL, JSON_SERVER_URL} from '../utils/constants'
+import { URL } from '../utils/constants'
 
 //Get all sites
 export const getAllSites = async () => {
@@ -13,18 +13,11 @@ export const getAllSites = async () => {
 }
 
 //Get single site
-export const getSingleSite = async (site) => {
+export const getSingleSite = async (id) => {
    try {
-      const res = await fetch(`${URL}/site/${site}`)
-      if (res.ok){
-         const json = await res.json()
-      }
-
-      // axios.get(`${URL}/site/${site}`)
-      // console.log('RES', res)
-      // const data = res.data
-      
-      return json
+      const res = await axios.get(`${URL}/site/${id}`)
+      const data = res.data
+      return data
    } catch (err) {
       console.log(err)
    }

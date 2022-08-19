@@ -17,8 +17,8 @@ export const siteSlice = createSlice({
          console.log('STATE', state, 'ACTION', action)
       },
       deleteSiteState: (state, action) => {
-         const {id, v} = action.payload;
-         const found = state[v].find(site => site._id === id);
+         const {_id, v} = action.payload;
+         const found = state[v].find(site => site._id === _id);
          if (found) {
             state[v].splice(state[v].indexOf(found), 1)
          }
