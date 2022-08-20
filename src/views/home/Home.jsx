@@ -1,6 +1,5 @@
 import SiteList from "../../components/siteList";
 
-
 const Home = () => {
 
     return (

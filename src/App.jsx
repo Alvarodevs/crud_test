@@ -12,7 +12,6 @@ import Spinner from "./components/spinner";
 import Error from "./components/error";
 
 
-
 function App() {
   const [appState, setAppState] = useState(APP_STATE.INIT);
   const dispatch = useDispatch();
@@ -49,7 +48,7 @@ function App() {
         {appState === 'ko' && <Navigate replace to={'/'}/>}
       </BrowserRouter>}
 
-      
+      {appState === 'ko' && <Error/>}
 
     </div>
   );

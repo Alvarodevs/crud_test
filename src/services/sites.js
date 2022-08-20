@@ -18,7 +18,7 @@ export const getLastSite = async () => {
    try {
       const res = await axios.get(`${URL}/sites`)
       const data = res.data
-         return data.at(-1)      
+      return data.at(-1)      
    } catch (err) {
       console.log(err)
    }

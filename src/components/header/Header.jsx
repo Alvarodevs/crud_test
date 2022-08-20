@@ -21,7 +21,6 @@ import {
                 <AddCircleIcon/>
               </AddButton>
             </Link>
-  
             <AddSiteParagraph>Create your site</AddSiteParagraph>
           </AddSiteContainer>
         </StyledHeader>

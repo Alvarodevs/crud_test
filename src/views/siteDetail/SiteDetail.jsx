@@ -15,7 +15,7 @@ const SiteDetail = () => {
             )
         })
     }, [id])
-    
+
     return (
         <div>
             <SiteForm singleSite={siteToProps}></SiteForm>

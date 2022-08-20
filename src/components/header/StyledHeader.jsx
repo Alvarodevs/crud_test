@@ -12,7 +12,6 @@ export const StyledHeader = styled.header`
 
 export const HeaderTitle = styled.h2`
    margin: 1rem;
-
    a {
       :visited{
          color:#fff;
@@ -26,6 +25,7 @@ export const AddSiteContainer = styled.div`
    align-items: center;
    justify-content: space-between;
 `
+
 export const AddSiteParagraph = styled.p`
    margin-bottom: 1.2rem;
 `
