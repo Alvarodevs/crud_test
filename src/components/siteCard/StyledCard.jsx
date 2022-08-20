@@ -5,7 +5,7 @@ export const StyledCard = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 0.2rem;
-  min-width: 9rem;
+  width: 12rem;
   height: 15rem;
   border: 1px #575757 solid;
   padding: 0.5rem;
@@ -14,7 +14,7 @@ export const StyledCard = styled.div`
 
   &:hover{
     transition: 0.3s ease-in-out;
-    width: 9rem;
+    width: 13rem;
     height: 16rem;
     color: #fff;
     overflow: hidden;
