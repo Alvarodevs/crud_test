@@ -29,6 +29,7 @@ function App() {
       })
       .catch(error => {
         setAppState(APP_STATE.KO);
+        console.log(error)
       })
   }, []);
 
@@ -42,7 +43,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create_site" element={<SiteDetail />} />
-          <Route path="/edit_site/:id" element={<SiteDetail />} />
           <Route path="/site/:id" element={<SiteDetail/>} />
           <Route path="*" element={<Error/>} />
         </Routes>

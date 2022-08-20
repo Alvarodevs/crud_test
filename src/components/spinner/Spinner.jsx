@@ -5,7 +5,7 @@ const Spinner = () => {
 
     return (
         <SpinnerContainer>
-            <CircularProgress/>
+            <CircularProgress style={{color: "white"}}/>
         </SpinnerContainer>
     )
 }

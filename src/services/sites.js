@@ -1,12 +1,24 @@
 import axios from 'axios'
 import { URL } from '../utils/constants'
 
+
 //Get all sites
 export const getAllSites = async () => {
    try {
       const res = await axios.get(`${URL}/sites`)
       const data = res.data
       return data
+   } catch (err) {
+      console.log(err)
+   }
+}
+
+//Get last site to dispatch with ID from endpoint
+export const getLastSite = async () => {
+   try {
+      const res = await axios.get(`${URL}/sites`)
+      const data = res.data
+         return data.at(-1)      
    } catch (err) {
       console.log(err)
    }
@@ -28,7 +40,7 @@ export const postSite = async (site) => {
    try {
       await axios.post(`${URL}/site`, site)
    } catch (err){
-      console.log(err)
+      console.log(err)    
    }   
 }
 
