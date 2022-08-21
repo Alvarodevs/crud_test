@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllSites } from "../../services/sites";
+import { getAllSites, getLastSite } from "../../services/sites";
 
 const initialState = [];
 
@@ -11,6 +11,7 @@ export const siteSlice = createSlice({
          state.push(action.payload)
       },
       addSiteState: (state, action) => {
+         console.log('ACTION', action)
          const found = state[0].some(site => site._id === action.payload._id);
          if(!found){
             state[action.payload.__v].push(action.payload)
