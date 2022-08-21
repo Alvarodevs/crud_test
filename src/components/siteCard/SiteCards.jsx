@@ -8,7 +8,7 @@ import {
 } from "./StyledCard";
 import DeleteOutlineSharpIcon from "@mui/icons-material/DeleteOutlineSharp";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteSite, getLastSite } from "../../services/sites";
 import { addSiteState, deleteSiteState } from "../../features/sites/siteSlice";
@@ -16,23 +16,29 @@ import { APP_STATE } from "../../utils/constants";
 import { useState, useEffect } from "react";
 import Spinner from "../spinner";
 import Error from "../error";
+import PropTypes from "prop-types";
+
 
 const SiteCards = () => {
   const [appState, setAppState] = useState(APP_STATE.INIT);
+  const [lastSite, setLastSite] = useState({});
   const sitesState = useSelector((state) => state.sites[0]);
   const dispatch = useDispatch();
-
+  const { id } = useParams();
+  
   useEffect(() => {
     setAppState(APP_STATE.LOADING);
     getLastSite()
-      .then((last) => {
-        return setAppState(APP_STATE.OK), dispatch(addSiteState(last));
+      .then((data) => {
+        setLastSite(data)
+        setAppState(APP_STATE.OK)
+        dispatch(addSiteState(data))
+    }).catch((err) => {
+        setAppState(APP_STATE.KO)
+        console.log(err)
       })
-      .catch((err) => {
-        setAppState(APP_STATE.KO);
-        console.log(err);
-      });
-  }, []);
+  }, [!lastSite]);
+
 
   const handleDelete = (_id, v) => {
     deleteSite(_id);
@@ -74,3 +80,7 @@ const SiteCards = () => {
 };
 
 export default SiteCards;
+
+SiteCards.propTypes = {
+  dispatchSite: PropTypes.func,
+};

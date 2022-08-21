@@ -4,38 +4,42 @@ import {
   SubmitButtonContainer,
   CloseButtonContainer,
 } from "./StyledSiteForm";
-import React, { useState, useId } from "react";
+import React, { useState, useId, useEffect } from "react";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import CloseIcon from "@mui/icons-material/Close";
-import { Link, useNavigate } from "react-router-dom";
-import { postSite, editSite } from "../../services/sites";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { postSite, editSite, getSingleSite } from "../../services/sites";
 import { editSiteState } from "../../features/sites/siteSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { APP_STATE } from "../../utils/constants";
+import Spinner from "../spinner";
 
-const SiteForm = ({ singleSite }) => {
+
+const SiteForm = () => {
   const [appState, setAppState] = useState(APP_STATE.INIT);
   const [siteData, setSiteData] = useState({
-    name: singleSite.name ? singleSite.name : "",
-    path: singleSite.path ? singleSite.path : "",
-    publicPath: singleSite.publicPath ? singleSite.publicPath : "",
-    key: singleSite.key ? singleSite.key : "",
-    description: singleSite.description ? singleSite.description : "",
-    site: singleSite.site ? singleSite.site : "",
+    name: "",
+    path: "",
+    publicPath: "",
+    key: "",
+    description: "",
+    site: "",
   });
 
   const sites = useSelector((state) => state.sites[0]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { id } = useParams();
 
+  //Data for site creators ID + CREATION DATE
   const newId = useId();
   const creationDate = new Date().toISOString();
 
   const handleChange = (e) => {
     setSiteData({
-      _id: singleSite._id ? singleSite._id : newId,
+      _id: id ? id : newId,
       ...siteData,
       [e.target.name]: e.target.value,
       createDate: creationDate,
@@ -46,24 +50,32 @@ const SiteForm = ({ singleSite }) => {
   const handleSubmit = (e) => {
     setAppState(APP_STATE.LOADING);
     e.preventDefault();
-    
-    if (singleSite._id) {
-      editSite(singleSite._id, siteData);
+
+    if (id) {
+      editSite(id, siteData);
       dispatch(editSiteState(siteData));
       setAppState(APP_STATE.OK);
     } else {
       postSite(siteData);
       setAppState(APP_STATE.OK);
     }
-    
     navigate("/");
   };
 
+  useEffect(() => {
+    setAppState(APP_STATE.LOADING)
+    getSingleSite(id).then((data) => {
+      setSiteData(data);
+    });
+    setAppState(APP_STATE.OK)
+  }, [id]);
+
+  console.log(appState)
   return (
     <div>
-      {appState === 'loading' && <Spinner/>}
+      {appState === "loading" && <Spinner />}
 
-      {sites &&
+      {appState === "ok" && (
         <FormContainer>
           <StyledForm>
             <CloseButtonContainer>
@@ -139,7 +151,10 @@ const SiteForm = ({ singleSite }) => {
             </form>
           </StyledForm>
         </FormContainer>
-      }
+      )}
+
+      {appState === "ko" && <Error />}
+      
     </div>
   );
 };
