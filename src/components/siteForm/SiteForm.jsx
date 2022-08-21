@@ -28,7 +28,6 @@ const SiteForm = ({ singleSite }) => {
 
   const sites = useSelector((state) => state.sites[0]);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const newId = useId();
   const creationDate = new Date().toISOString();
