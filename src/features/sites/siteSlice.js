@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllSites } from "../../services/sites";
+import { getAllSites, getLastSite } from "../../services/sites";
 
 const initialState = [];
 

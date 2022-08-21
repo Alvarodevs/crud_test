@@ -38,7 +38,7 @@ export const getSingleSite = async (id) => {
 //Post new site
 export const postSite = async (site) => {
    try {
-      await axios.post(`${URL}/site`, site)
+      return await axios.post(`${URL}/site`, site)
    } catch (err){
       console.log(err)    
    }   
